@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 import {
   FaFacebookF,
   FaTwitter,
@@ -20,10 +20,13 @@ const Footer = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-12">
             {/* Brand */}
             <div>
-              <div className="text-[#006d6f] font-extrabold text-2xl mb-6 flex items-center gap-2">
+              <Link
+                to="/"
+                className="text-[#006d6f] font-extrabold text-2xl mb-6 flex items-center gap-2"
+              >
                 <Logo size={40} color="#006d6f" />
                 AssetManagement
-              </div>
+              </Link>
 
               <p className="text-gray-600 text-sm leading-relaxed mb-6">
                 A powerful asset management platform to help companies track
