@@ -12,6 +12,7 @@ import Dashboard from "../pages/Dashboard/Dashboard/Dashboard";
 import Profile from "../components/Profile/Profile";
 import AssetList from "../pages/Dashboard/HRDashboard/AssetList/AssetList";
 import AddAsset from "../pages/Dashboard/HRDashboard/AddAsset/AddAsset";
+import AllRequest from "../pages/Dashboard/HRDashboard/AllRequest/AllRequest";
 
 export const router = createBrowserRouter([
   {
@@ -64,6 +65,10 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/add-asset",
         element: <AddAsset />,
+      },
+      {
+        path: "/dashboard/all-requests",
+        element: <AllRequest />,
       },
     ],
   },
