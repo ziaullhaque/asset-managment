@@ -10,6 +10,8 @@ import JoinAsEmployee from "../pages/JoinAsEmployee/JoinAsEmployee";
 import DashboardLayout from "../layouts/DashboardLayout";
 import Dashboard from "../pages/Dashboard/Dashboard/Dashboard";
 import Profile from "../components/Profile/Profile";
+import AssetList from "../pages/Dashboard/HRDashboard/AssetList/AssetList";
+import AddAsset from "../pages/Dashboard/HRDashboard/AddAsset/AddAsset";
 
 export const router = createBrowserRouter([
   {
@@ -54,6 +56,14 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/profile",
         element: <Profile />,
+      },
+      {
+        path: "/dashboard/asset-list",
+        element: <AssetList />,
+      },
+      {
+        path: "/dashboard/add-asset",
+        element: <AddAsset />,
       },
     ],
   },
