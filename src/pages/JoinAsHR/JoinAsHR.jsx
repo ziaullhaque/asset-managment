@@ -53,7 +53,6 @@ const JoinHR = () => {
 
       await axiosInstance.post("/users", payload);
 
-      // ✅ Success Alert
       await Swal.fire({
         icon: "success",
         title: "Signup Successful",
@@ -233,7 +232,7 @@ const JoinHR = () => {
 
             <button
               type="submit"
-              className="w-full bg-[#006d6f] hover:bg-[#005355] text-white py-3 rounded-md font-bold shadow"
+              className="w-full hover:bg-[#006d6f]/10 text-white py-3 rounded-md font-bold shadow"
             >
               {loading ? (
                 <ImSpinner9 className="animate-spin m-auto" />

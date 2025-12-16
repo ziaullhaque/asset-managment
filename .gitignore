@@ -15,6 +15,7 @@ dist-ssr
 JoinEmployee.jsx
 JoinHR.jsx
 SignUp.jsx
+Statistics.jsx
 
 # Editor directories and files
 .vscode/*

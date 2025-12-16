@@ -7,9 +7,9 @@ import Support from "../components/Home/Support/Support";
 import Login from "../pages/Login/Login";
 import JoinAsHR from "../pages/JoinAsHR/JoinAsHR";
 import JoinAsEmployee from "../pages/JoinAsEmployee/JoinAsEmployee";
-// import SignUp from "../pages/SignUp/SignUp";
-// import JoinHR from "../pages/JoinHR";
-// import JoinEmployee from "../pages/JoinEmployee";
+import DashboardLayout from "../layouts/DashboardLayout";
+import Dashboard from "../pages/Dashboard/Dashboard/Dashboard";
+import Profile from "../components/Profile/Profile";
 
 export const router = createBrowserRouter([
   {
@@ -41,18 +41,20 @@ export const router = createBrowserRouter([
         path: "/join-employee",
         element: <JoinAsEmployee />,
       },
-      // {
-      //   path: "/sign-up",
-      //   element: <SignUp />,
-      // },
-      // {
-      //   path: "/join-hr",
-      //   element: <JoinHR />,
-      // },
-      // {
-      //   path: "/join-employee",
-      //   element: <JoinEmployee />,
-      // },
+    ],
+  },
+  {
+    path: "/dashboard",
+    element: <DashboardLayout />,
+    children: [
+      {
+        index: true,
+        element: <Dashboard />,
+      },
+      {
+        path: "/dashboard/profile",
+        element: <Profile />,
+      },
     ],
   },
 ]);
