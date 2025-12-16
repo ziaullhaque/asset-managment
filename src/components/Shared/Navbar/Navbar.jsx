@@ -123,11 +123,35 @@ const Navbar = () => {
                           Login
                         </Link>
                         <Link
-                          to="/signup"
+                          to="/join-hr"
                           className="px-4 py-3 hover:bg-[#006d6f]/10 transition font-semibold text-gray-700"
                         >
-                          Sign Up
+                          Join HR
                         </Link>
+                        <Link
+                          to="/join-employee"
+                          className="px-4 py-3 hover:bg-[#006d6f]/10 transition font-semibold text-gray-700"
+                        >
+                          Join Employee
+                        </Link>
+                        {/* <Link
+                            to="/sign-up"
+                            className="px-4 py-3 hover:bg-[#006d6f]/10 transition font-semibold text-gray-700"
+                          >
+                            Sign Up
+                          </Link> */}
+                        {/* <Link
+                          to="/join-hr"
+                          className="px-4 py-3 hover:bg-[#006d6f]/10 transition font-semibold text-gray-700"
+                        >
+                          Join two
+                        </Link> */}
+                        {/* <Link
+                          to="/join-employee"
+                          className="px-4 py-3 hover:bg-[#006d6f]/10 transition font-semibold text-gray-700"
+                        >
+                          Join E two
+                        </Link> */}
                       </>
                     )}
                   </div>

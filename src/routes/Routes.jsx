@@ -5,6 +5,11 @@ import Home from "../pages/Home/Home";
 import About from "../components/Home/About/About";
 import Support from "../components/Home/Support/Support";
 import Login from "../pages/Login/Login";
+import JoinAsHR from "../pages/JoinAsHR/JoinAsHR";
+import JoinAsEmployee from "../pages/JoinAsEmployee/JoinAsEmployee";
+// import SignUp from "../pages/SignUp/SignUp";
+// import JoinHR from "../pages/JoinHR";
+// import JoinEmployee from "../pages/JoinEmployee";
 
 export const router = createBrowserRouter([
   {
@@ -28,6 +33,26 @@ export const router = createBrowserRouter([
         path: "/login",
         element: <Login />,
       },
+      {
+        path: "/join-hr",
+        element: <JoinAsHR />,
+      },
+      {
+        path: "/join-employee",
+        element: <JoinAsEmployee />,
+      },
+      // {
+      //   path: "/sign-up",
+      //   element: <SignUp />,
+      // },
+      // {
+      //   path: "/join-hr",
+      //   element: <JoinHR />,
+      // },
+      // {
+      //   path: "/join-employee",
+      //   element: <JoinEmployee />,
+      // },
     ],
   },
 ]);

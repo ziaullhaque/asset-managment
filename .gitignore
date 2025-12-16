@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 .env
+JoinEmployee.jsx
+JoinHR.jsx
+SignUp.jsx
 
 # Editor directories and files
 .vscode/*

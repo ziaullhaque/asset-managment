@@ -132,7 +132,7 @@ const Login = () => {
               <div className="grid grid-cols-2 gap-4">
                 {/* Join as HR */}
                 <Link
-                  to="/join-as-hr"
+                  to="/join-hr"
                   className="text-center py-3 rounded-lg font-semibold text-[#006d6f] border-2 border-[#006d6f]/40
                  bg-[#006d6f]/5 hover:bg-[#006d6f] hover:text-white    hover:shadow-lg  transition-all duration-300"
                 >
@@ -141,7 +141,7 @@ const Login = () => {
 
                 {/* Join as Employee */}
                 <Link
-                  to="/join-as-employee"
+                  to="/join-employee"
                   className="text-center py-3 rounded-lg font-semibold text-[#006d6f]
       border-2 border-[#006d6f]/40
       bg-[#006d6f]/5
