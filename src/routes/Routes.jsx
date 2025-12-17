@@ -17,6 +17,7 @@ import PrivateRoute from "./PrivateRoute";
 import RequestAsset from "../pages/Dashboard/EmployeeDashboard/RequestAsset.jsx/RequestAsset";
 import MyAssets from "../pages/Dashboard/EmployeeDashboard/MyAssets/MyAssets";
 import MyTeam from "../pages/Dashboard/EmployeeDashboard/MyTeam/MyTeam";
+import EmployeeRoute from "./EmployeeRoute";
 
 export const router = createBrowserRouter([
   {
@@ -91,12 +92,13 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
-      //employee
       {
         path: "/dashboard/request-asset",
         element: (
           <PrivateRoute>
-            <RequestAsset />
+            <EmployeeRoute>
+              <RequestAsset />
+            </EmployeeRoute>
           </PrivateRoute>
         ),
       },
@@ -104,7 +106,9 @@ export const router = createBrowserRouter([
         path: "/dashboard/my-asset",
         element: (
           <PrivateRoute>
-            <MyAssets />
+            <EmployeeRoute>
+              <MyAssets />
+            </EmployeeRoute>
           </PrivateRoute>
         ),
       },
@@ -112,7 +116,9 @@ export const router = createBrowserRouter([
         path: "/dashboard/my-team",
         element: (
           <PrivateRoute>
-            <MyTeam />
+            <EmployeeRoute>
+              <MyTeam />
+            </EmployeeRoute>
           </PrivateRoute>
         ),
       },

@@ -544,7 +544,7 @@ const AssignAssetModal = ({ asset, employees, closeModal, handleAssign }) => {
         ) : (
           <div className="overflow-x-auto">
             <table className="table table-zebra">
-              <thead className="bg-lime-500 text-white">
+              <thead className="bg-[#006d6f] text-white">
                 <tr>
                   <th className="text-white">#</th>
                   <th className="text-white">Name</th>
@@ -582,7 +582,7 @@ const AssignAssetModal = ({ asset, employees, closeModal, handleAssign }) => {
                     <td>
                       <button
                         onClick={() => handleAssign(asset, employee)}
-                        className="btn btn-sm bg-lime-500 hover:bg-lime-600 text-white border-0"
+                        className="btn btn-sm bg-[#006d6f]/90 hover:bg-[#006d6f] text-white border-0"
                       >
                         Assign
                       </button>
