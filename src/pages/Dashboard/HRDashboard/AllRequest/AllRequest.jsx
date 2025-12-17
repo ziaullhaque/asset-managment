@@ -159,7 +159,7 @@ const AllRequest = () => {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search by employee / asset..."
-              className="w-full py-10 pl-10 pr-4 py-2 focus:border-[#006d6f] bg-gray-50 border border-[#006d6f]/30 rounded-lg focus:ring-2 focus:ring-[#006d6f]/40 outline-none"
+              className="w-full  pl-10 pr-4 py-2 bg-gray-50 border border-[#006d6f]/30 rounded-lg focus:ring-2 focus:ring-[#006d6f]/40 outline-none"
             />
           </div>
 

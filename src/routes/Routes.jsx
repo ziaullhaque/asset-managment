@@ -13,6 +13,7 @@ import Profile from "../components/Profile/Profile";
 import AssetList from "../pages/Dashboard/HRDashboard/AssetList/AssetList";
 import AddAsset from "../pages/Dashboard/HRDashboard/AddAsset/AddAsset";
 import AllRequest from "../pages/Dashboard/HRDashboard/AllRequest/AllRequest";
+import EmployeeList from "../pages/Dashboard/HRDashboard/EmployeeList/EmployeeList";
 import PrivateRoute from "./PrivateRoute";
 import RequestAsset from "../pages/Dashboard/EmployeeDashboard/RequestAsset.jsx/RequestAsset";
 import MyAssets from "../pages/Dashboard/EmployeeDashboard/MyAssets/MyAssets";
@@ -89,6 +90,14 @@ export const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <AllRequest />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/dashboard/employee-list",
+        element: (
+          <PrivateRoute>
+            <EmployeeList />
           </PrivateRoute>
         ),
       },
