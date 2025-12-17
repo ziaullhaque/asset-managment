@@ -13,6 +13,10 @@ import Profile from "../components/Profile/Profile";
 import AssetList from "../pages/Dashboard/HRDashboard/AssetList/AssetList";
 import AddAsset from "../pages/Dashboard/HRDashboard/AddAsset/AddAsset";
 import AllRequest from "../pages/Dashboard/HRDashboard/AllRequest/AllRequest";
+import PrivateRoute from "./PrivateRoute";
+import RequestAsset from "../pages/Dashboard/EmployeeDashboard/RequestAsset.jsx/RequestAsset";
+import MyAssets from "../pages/Dashboard/EmployeeDashboard/MyAssets/MyAssets";
+import MyTeam from "../pages/Dashboard/EmployeeDashboard/MyTeam/MyTeam";
 
 export const router = createBrowserRouter([
   {
@@ -48,7 +52,11 @@ export const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <DashboardLayout />,
+    element: (
+      <PrivateRoute>
+        <DashboardLayout />
+      </PrivateRoute>
+    ),
     children: [
       {
         index: true,
@@ -58,17 +66,55 @@ export const router = createBrowserRouter([
         path: "/dashboard/profile",
         element: <Profile />,
       },
+      //hr
       {
         path: "/dashboard/asset-list",
-        element: <AssetList />,
+        element: (
+          <PrivateRoute>
+            <AssetList />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/dashboard/add-asset",
-        element: <AddAsset />,
+        element: (
+          <PrivateRoute>
+            <AddAsset />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/dashboard/all-requests",
-        element: <AllRequest />,
+        element: (
+          <PrivateRoute>
+            <AllRequest />
+          </PrivateRoute>
+        ),
+      },
+      //employee
+      {
+        path: "/dashboard/request-asset",
+        element: (
+          <PrivateRoute>
+            <RequestAsset />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/dashboard/my-asset",
+        element: (
+          <PrivateRoute>
+            <MyAssets />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/dashboard/my-team",
+        element: (
+          <PrivateRoute>
+            <MyTeam />
+          </PrivateRoute>
+        ),
       },
     ],
   },

@@ -81,12 +81,6 @@ const DashboardLayout = () => {
       path: "/dashboard/request-asset",
       icon: MdOutlineRequestPage,
     },
-    {
-      id: 4,
-      name: "Profile",
-      path: "/dashboard/profile",
-      icon: FaUser,
-    },
   ];
 
   const dashboardLinks = role === "employee" ? employeeLinks : HRLinks;
@@ -155,7 +149,11 @@ const DashboardLayout = () => {
         </nav>
 
         {/* Profile & Logout */}
-        <div className="p-4 border-t-2 border-gray-100 mt-80">
+        <div
+          className={`p-4 border-t-2 border-gray-100 ${
+            role === "employee" ? "mt-120" : "mt-80"
+          }`}
+        >
           {/* <hr /> */}
           <NavLink
             to="/dashboard/profile"
