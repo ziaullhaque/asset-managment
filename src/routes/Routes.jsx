@@ -15,12 +15,12 @@ import AddAsset from "../pages/Dashboard/HRDashboard/AddAsset/AddAsset";
 import AllRequest from "../pages/Dashboard/HRDashboard/AllRequest/AllRequest";
 import EmployeeList from "../pages/Dashboard/HRDashboard/EmployeeList/EmployeeList";
 import UpgradePackage from "../pages/Dashboard/HRDashboard/UpgradePackage/UpgradePackage";
-// import UpgradePackagePage from "../pages/Dashboard/HRDashboard/UpgradePackage/UpgradePackagePage";
 import PrivateRoute from "./PrivateRoute";
 import RequestAsset from "../pages/Dashboard/EmployeeDashboard/RequestAsset.jsx/RequestAsset";
 import MyAssets from "../pages/Dashboard/EmployeeDashboard/MyAssets/MyAssets";
 import MyTeam from "../pages/Dashboard/EmployeeDashboard/MyTeam/MyTeam";
 import EmployeeRoute from "./EmployeeRoute";
+import HRRoute from "./HRRoute";
 
 export const router = createBrowserRouter([
   {
@@ -68,14 +68,19 @@ export const router = createBrowserRouter([
       },
       {
         path: "/dashboard/profile",
-        element: <Profile />,
+        element: (
+          <PrivateRoute>
+            <Profile />
+          </PrivateRoute>
+        ),
       },
-      //hr
       {
         path: "/dashboard/asset-list",
         element: (
           <PrivateRoute>
-            <AssetList />
+            <HRRoute>
+              <AssetList />
+            </HRRoute>
           </PrivateRoute>
         ),
       },
@@ -83,7 +88,9 @@ export const router = createBrowserRouter([
         path: "/dashboard/add-asset",
         element: (
           <PrivateRoute>
-            <AddAsset />
+            <HRRoute>
+              <AddAsset />
+            </HRRoute>
           </PrivateRoute>
         ),
       },
@@ -91,7 +98,9 @@ export const router = createBrowserRouter([
         path: "/dashboard/all-requests",
         element: (
           <PrivateRoute>
-            <AllRequest />
+            <HRRoute>
+              <AllRequest />
+            </HRRoute>
           </PrivateRoute>
         ),
       },
@@ -99,7 +108,9 @@ export const router = createBrowserRouter([
         path: "/dashboard/employee-list",
         element: (
           <PrivateRoute>
-            <EmployeeList />
+            <HRRoute>
+              <EmployeeList />
+            </HRRoute>
           </PrivateRoute>
         ),
       },
@@ -107,18 +118,12 @@ export const router = createBrowserRouter([
         path: "/dashboard/upgrade-package",
         element: (
           <PrivateRoute>
-            <UpgradePackage />
+            <HRRoute>
+              <UpgradePackage />
+            </HRRoute>
           </PrivateRoute>
         ),
       },
-      // {
-      //   path: "/dashboard/upgrade-package-page",
-      //   element: (
-      //     <PrivateRoute>
-      //       <UpgradePackagePage />
-      //     </PrivateRoute>
-      //   ),
-      // },
       {
         path: "/dashboard/request-asset",
         element: (

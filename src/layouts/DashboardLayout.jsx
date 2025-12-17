@@ -65,12 +65,6 @@ const DashboardLayout = () => {
       path: "/dashboard/upgrade-package",
       icon: FaArrowUp,
     },
-    {
-      id: 7,
-      name: "Upgrade Package page",
-      path: "/dashboard/upgrade-package-page",
-      icon: FaArrowUp,
-    },
   ];
 
   const employeeLinks = [

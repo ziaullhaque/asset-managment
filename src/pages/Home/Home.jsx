@@ -7,7 +7,7 @@ import Packages from "../../components/Home/Packages/Packages";
 import ContactHero from "../../components/Home/Contact/ContactHero";
 import Testimonials from "../../components/Home/Testimonials/Testimonials";
 import Faq from "../../components/Home/Faq/Faq";
-// import HRRoute from "../../routes/HRRoute";
+import HRRoute from "../../routes/HRRoute";
 
 const Home = () => {
   return (
@@ -16,8 +16,9 @@ const Home = () => {
         <Hero />
         <Features />
         <HowItWorks />
-        {/* <HRRoute></HRRoute> */}
+        <HRRoute>
         <Packages />
+        </HRRoute>
         <ContactHero />
         <Testimonials />
         <Faq />
