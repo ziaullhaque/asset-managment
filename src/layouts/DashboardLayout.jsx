@@ -151,7 +151,7 @@ const DashboardLayout = () => {
         {/* Profile & Logout */}
         <div
           className={`p-4 border-t-2 border-gray-100 ${
-            role === "employee" ? "mt-120" : "mt-80"
+            role === "employee" ? "mt-130" : "mt-90"
           }`}
         >
           {/* <hr /> */}

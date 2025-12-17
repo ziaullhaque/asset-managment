@@ -213,7 +213,7 @@ const Profile = () => {
       )}
 
       {/* Employee Company Affiliations */}
-      {role === "employee" && myCompanyNames.length > 0 && (
+      {/* {role === "employee" && myCompanyNames.length > 0 && (
         <div className="bg-white rounded-2xl shadow-xl p-8">
           <div className="flex items-center gap-3 mb-6">
             <div className="w-12 h-12 bg-red-500 rounded-lg flex items-center justify-center">
@@ -243,7 +243,7 @@ const Profile = () => {
             ))}
           </div>
         </div>
-      )}
+      )} */}
       <button
         onClick={() => modalRef.current?.showModal()}
         className="btn w-full text-center text-[#006d6f] border-2 border-[#006d6f]/40
