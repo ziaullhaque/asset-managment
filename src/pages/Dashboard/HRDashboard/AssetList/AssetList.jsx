@@ -2,15 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useQuery } from "@tanstack/react-query";
 import Swal from "sweetalert2";
-import {
-  FaBox,
-  FaSearch,
-  FaCheckCircle,
-  FaEdit,
-  FaTrash,
-  FaUserPlus,
-  FaCheckSquare,
-} from "react-icons/fa";
+import { FaSearch } from "react-icons/fa";
 import useAuth from "../../../../hooks/useAuth";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import { Box, FilePenLine, PackageX, Trash2, UserPlus } from "lucide-react";
@@ -75,7 +67,7 @@ const AssetList = () => {
           title: "Updated!",
           text: `${data.productName} has been updated successfully.`,
           icon: "success",
-          confirmButtonColor: "#84cc16",
+          confirmButtonColor: "#006d6f",
           customClass: { popup: "rounded-2xl", confirmButton: "rounded-lg" },
         });
         refetch();
@@ -119,7 +111,7 @@ const AssetList = () => {
             title: "Deleted!",
             text: `${asset.productName} has been deleted.`,
             icon: "success",
-            confirmButtonColor: "#84cc16",
+            confirmButtonColor: "#006d6f",
             customClass: { popup: "rounded-2xl", confirmButton: "rounded-lg" },
           });
           refetch();
@@ -162,7 +154,7 @@ const AssetList = () => {
         title: "Assigned!",
         text: `${asset.productName} has been assigned to ${employee.name} successfully.`,
         icon: "success",
-        confirmButtonColor: "#84cc16",
+        confirmButtonColor: "#006d6f",
         customClass: { popup: "rounded-2xl", confirmButton: "rounded-lg" },
       });
 
@@ -185,7 +177,7 @@ const AssetList = () => {
   return (
     <div className="space-y-6">
       {/* Header + Stats + Search */}
-      <div className="bg-white rounded-2xl shadow-lg p-6">
+      <div className="bg-[#f7fbfb] rounded-2xl shadow-lg p-6">
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center gap-3">
             <div className="w-12 h-12 bg-[#006d6f] rounded-lg flex items-center justify-center">
