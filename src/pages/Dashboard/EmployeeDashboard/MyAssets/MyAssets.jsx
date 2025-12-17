@@ -123,12 +123,13 @@ const MyAssets = () => {
           <div className="relative">
             <FaFilter className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
             <select
+              value={assetType}
               onChange={(e) => setAssetType(e.target.value)}
               className="w-full pl-12 pr-4 py-3 border border-[#006d6f]/30 rounded-lg focus:ring-2 focus:ring-[#006d6f]/40 bg-white"
             >
-              <option value="All">All Types</option>
+              <option value="all">All Types</option>
               <option value="Returnable">Returnable</option>
-              <option value="Non-returnable">Non-returnable</option>
+              <option value="Non-Returnable">Non-Returnable</option>
             </select>
           </div>
         </div>
