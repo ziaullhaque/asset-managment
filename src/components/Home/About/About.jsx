@@ -47,7 +47,8 @@ const About = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 ">
-            Why Companies Trust <span className="text-primary">AssetManagement</span>
+            Why Companies Trust{" "}
+            <span className="text-[#006d6f]">AssetManagement</span>
           </h2>
           <p className="mt-3 text-gray-600  max-w-2xl mx-auto text-lg">
             A modern asset management platform designed to help enterprises stay
@@ -79,7 +80,6 @@ const About = () => {
           ))}
         </div>
       </div>
-      
     </section>
   );
 };

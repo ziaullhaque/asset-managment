@@ -11,6 +11,7 @@ import {
   Box,
   UserCheck,
   Search,
+  ClipboardList,
 } from "lucide-react";
 
 const EmployeeList = () => {
@@ -91,10 +92,13 @@ const EmployeeList = () => {
     <div className="bg-[#f9fafb] min-h-screen">
       <div className="max-w-7xl mx-auto space-y-8 py-12">
         {/* Header Section */}
-        <div className="flex items-center justify-between mb-8">
-          <h2 className="text-2xl font-bold text-[#006d6f] border-b-2 border-[#006d6f]/20 pb-1">
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10 bg-[#006d6f] rounded-lg flex items-center justify-center">
+            <ClipboardList className="text-white" />
+          </div>
+          <h1 className="text-3xl font-bold text-[#006d6f] border-b-2 border-[#006d6f]/30 pb-1">
             Employee List
-          </h2>
+          </h1>
         </div>
 
         {/* Stats Cards */}

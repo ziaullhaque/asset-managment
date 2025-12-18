@@ -103,7 +103,7 @@ const AllRequest = () => {
     <div className="p-8 space-y-6">
       {/* Header */}
       <div className="flex items-center gap-3">
-        <div className="w-11 h-11 bg-[#006d6f] rounded-lg flex items-center justify-center">
+        <div className="w-10 h-10 bg-[#006d6f] rounded-lg flex items-center justify-center">
           <FaClipboardList className="text-white" />
         </div>
         <h1 className="text-3xl font-bold text-[#006d6f] border-b-2 border-[#006d6f]/30 pb-1">

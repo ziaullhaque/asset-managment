@@ -18,7 +18,7 @@ import {
   FaClipboardCheck,
   FaUndoAlt,
   FaBan,
-  FaClipboardList,
+  FaChartBar,
 } from "react-icons/fa";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import useAuth from "../../../../hooks/useAuth";
@@ -94,13 +94,16 @@ const Statistics = ({ isAnimationActive = true }) => {
   return (
     <div className="p-6 md:p-10 space-y-10 bg-[#f7fbfb] min-h-screen">
       {/* Header */}
-      <div>
-        <div className="flex items-center gap-3">
-          <h2 className="text-3xl font-bold text-[#004c4e] border-b-2 border-[#006d6f]/30 pb-1">
-            Statistics & Analytics
-          </h2>
+      <div className="flex items-center gap-3">
+        <div className="w-12 h-12 bg-[#006d6f] rounded-lg flex items-center justify-center">
+          <FaChartBar className="text-white text-xl" />
         </div>
-          <p className="text-gray-500 mt-1">Asset usage & request overview</p>
+        <div>
+          <h1 className="text-3xl text-[#006d6f]  font-bold border-b-2 border-[#006d6f]/30 pb-1">
+            Statistics & Analytics
+          </h1>
+          <p className="text-gray-600">Asset usage & request overview</p>
+        </div>
       </div>
 
       {/* Summary Cards */}

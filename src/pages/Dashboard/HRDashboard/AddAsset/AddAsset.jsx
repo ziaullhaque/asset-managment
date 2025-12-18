@@ -72,10 +72,14 @@ const AddAsset = () => {
   return (
     <div className="max-w-4xl mx-auto my-16 px-4">
       {/* Header */}
-      <h2 className="text-2xl font-bold text-[#006d6f] mb-10 flex items-center gap-3 border-b pb-3">
-        <Package size={24} />
-        Add New Asset
-      </h2>
+      <div className="flex items-center gap-3 pb-6">
+        <div className="w-10 h-10 bg-[#006d6f] rounded-lg flex items-center justify-center">
+          <Package size={24} className="text-white" />
+        </div>
+        <h1 className="text-3xl font-bold text-[#006d6f] border-b-2 border-[#006d6f]/30 pb-1">
+          Add New Asset
+        </h1>
+      </div>
 
       {/* Form Card */}
       <div className="bg-white rounded-2xl shadow-xl p-8">

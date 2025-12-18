@@ -184,7 +184,9 @@ const AssetList = () => {
               <Box className="text-white text-xl" />
             </div>
             <div>
-              <h1 className="text-3xl font-bold text-gray-900">Asset List</h1>
+              <h1 className="text-3xl text-[#006d6f]  font-bold border-b-2 border-[#006d6f]/30 pb-1">
+                Asset List
+              </h1>
               <p className="text-gray-600">Manage your company assets</p>
             </div>
           </div>
