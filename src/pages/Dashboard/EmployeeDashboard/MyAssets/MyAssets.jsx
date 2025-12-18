@@ -37,7 +37,7 @@ const MyAssets = () => {
       text: "Are you sure you want to return this asset?",
       icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: "#16a34a",
+      confirmButtonColor: "#006d6f",
       cancelButtonColor: "#dc2626",
       confirmButtonText: "Yes, return",
     });
@@ -110,8 +110,6 @@ const MyAssets = () => {
         <div className="grid md:grid-cols-2 gap-4">
           <div className="relative">
             <input
-              // value={search}
-              // onChange={(e) => setSearch(e.target.value)}
               value={searchText}
               onChange={(e) => setSearchText(e.target.value)}
               placeholder="Search assets..."
@@ -190,7 +188,7 @@ const MyAssets = () => {
                     asset.assetType === "Returnable" && (
                       <button
                         onClick={() => handleReturn(asset._id)}
-                        className="btn btn-sm bg-green-600 hover:bg-green-700 text-white"
+                        className="btn btn-sm bg-[#006d6f] hover:bg-[#006d6f]/90 text-white"
                       >
                         <FaUndo className="mr-1" /> Return
                       </button>

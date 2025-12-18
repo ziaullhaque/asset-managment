@@ -1,4 +1,4 @@
-import { Link, Navigate, NavLink, Outlet, useLocation } from "react-router";
+import { Link, NavLink, Outlet, useLocation, useNavigate } from "react-router";
 import {
   FaBox,
   FaUsers,
@@ -10,7 +10,23 @@ import {
   FaSignOutAlt,
   FaChartBar,
 } from "react-icons/fa";
-import { MdOutlineRequestPage } from "react-icons/md";
+import {
+  MdInventory,
+  MdOutlineRequestPage,
+  MdRequestPage,
+} from "react-icons/md";
+import {
+  LayoutDashboard,
+  Package,
+  Users,
+  ClipboardList,
+  PlusCircle,
+  ArrowUpCircle,
+  User,
+  LogOut,
+  Menu,
+  Boxes,
+} from "lucide-react";
 import { AiOutlineTeam } from "react-icons/ai";
 import { useState } from "react";
 import useRole from "../hooks/useRole";
@@ -25,62 +41,97 @@ const DashboardLayout = () => {
   const location = useLocation();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   if (isRoleLoading) return <LoadingSpinner />;
 
   const HRLinks = [
-    {
-      id: 1,
-      name: "Statistics",
-      path: "/dashboard",
-      icon: FaChartBar,
-    },
-    {
-      id: 2,
-      name: "Asset List",
-      path: "/dashboard/asset-list",
-      icon: FaClipboardList,
-    },
+    { id: 1, name: "Statistics", path: "/dashboard", icon: LayoutDashboard },
+    { id: 2, name: "Asset List", path: "/dashboard/asset-list", icon: Boxes },
     {
       id: 3,
       name: "Add Asset",
       path: "/dashboard/add-asset",
-      icon: FaPlusCircle,
+      icon: PlusCircle,
     },
     {
       id: 4,
       name: "All Requests",
       path: "/dashboard/all-requests",
-      icon: FaClipboardList,
+      icon: ClipboardList,
     },
     {
       id: 5,
       name: "Employee List",
       path: "/dashboard/employee-list",
-      icon: FaUsers,
+      icon: Users,
     },
     {
       id: 6,
       name: "Upgrade Package",
       path: "/dashboard/upgrade-package",
-      icon: FaArrowUp,
+      icon: ArrowUpCircle,
     },
+    // {
+    //   id: 1,
+    //   name: "Statistics",
+    //   path: "/dashboard",
+    //   icon: FaChartBar,
+    // },
+    // {
+    //   id: 2,
+    //   name: "Asset List",
+    //   path: "/dashboard/asset-list",
+    //   icon: FaClipboardList,
+    // },
+    // {
+    //   id: 3,
+    //   name: "Add Asset",
+    //   path: "/dashboard/add-asset",
+    //   icon: FaPlusCircle,
+    // },
+    // {
+    //   id: 4,
+    //   name: "All Requests",
+    //   path: "/dashboard/all-requests",
+    //   icon: FaClipboardList,
+    // },
+    // {
+    //   id: 5,
+    //   name: "Employee List",
+    //   path: "/dashboard/employee-list",
+    //   icon: FaUsers,
+    // },
+    // {
+    //   id: 6,
+    //   name: "Upgrade Package",
+    //   path: "/dashboard/upgrade-package",
+    //   icon: FaArrowUp,
+    // },
   ];
 
   const employeeLinks = [
-    { id: 1, name: "My Assets", path: "/dashboard/my-asset", icon: FaBox },
-    {
-      id: 2,
-      name: "My Team",
-      path: "/dashboard/my-team",
-      icon: AiOutlineTeam,
-    },
+    { id: 1, name: "My Assets", path: "/dashboard/my-asset", icon: Package },
+    { id: 2, name: "My Team", path: "/dashboard/my-team", icon: Users },
     {
       id: 3,
       name: "Request Assets",
       path: "/dashboard/request-asset",
-      icon: MdOutlineRequestPage,
+      icon: ClipboardList,
     },
+    // { id: 1, name: "My Assets", path: "/dashboard/my-asset", icon: FaBox },
+    // {
+    //   id: 2,
+    //   name: "My Team",
+    //   path: "/dashboard/my-team",
+    //   icon: AiOutlineTeam,
+    // },
+    // {
+    //   id: 3,
+    //   name: "Request Assets",
+    //   path: "/dashboard/request-asset",
+    //   icon: MdOutlineRequestPage,
+    // },
   ];
 
   const dashboardLinks = role === "employee" ? employeeLinks : HRLinks;
@@ -98,7 +149,7 @@ const DashboardLayout = () => {
 
     if (result.isConfirmed) {
       await logOut();
-      Navigate("/");
+      navigate("/");
       Swal.fire("Logged out!", "You have been logged out.", "success");
     }
   };
@@ -166,7 +217,7 @@ const DashboardLayout = () => {
               }`
             }
           >
-            <FaUser className="text-lg" />
+            <User className="text-lg" />
             <span className="font-medium">Profile</span>
           </NavLink>
 
@@ -174,7 +225,7 @@ const DashboardLayout = () => {
             onClick={handleLogout}
             className="flex items-center gap-3 w-full px-4 py-3 rounded-lg text-gray-700 hover:bg-red-50 hover:text-red-600 transition-all duration-200"
           >
-            <FaSignOutAlt className="text-lg" />
+            <LogOut className="text-lg" />
             <span className="font-medium">Logout</span>
           </button>
         </div>

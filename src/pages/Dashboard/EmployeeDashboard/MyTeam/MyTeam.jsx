@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { FaBirthdayCake, FaBuilding, FaFilter } from "react-icons/fa";
+import { FaBuilding, FaFilter } from "react-icons/fa";
 import useAuth from "../../../../hooks/useAuth";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import LoadingSpinner from "../../../../components/Shared/LoadingSpinner/LoadingSpinner";
-import { Search, UserX } from "lucide-react";
+import { Cake, Gift, Search, UserX } from "lucide-react";
 
 const MyTeam = () => {
   const { user } = useAuth();
@@ -190,32 +190,34 @@ const MyTeam = () => {
           </div>
 
           {/* Upcoming Birthdays Section */}
-          <div className="bg-linear-to-br from-purple-50 to-pink-50 rounded-2xl shadow-lg p-6 border-2 border-purple-200">
+          <div className="bg-gradient-to-br from-teal-50 to-emerald-50 rounded-2xl shadow-lg p-6 border border-teal-200">
             <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
-              <FaBirthdayCake className="text-purple-600" />
+              <Gift className="text-teal-600" />
               Upcoming Birthdays This Month
             </h2>
 
             {upcomingBirthdays.length === 0 ? (
-              <div className="text-center py-8">
-                <FaBirthdayCake className="text-gray-400 text-4xl mx-auto mb-3" />
-                <p className="text-gray-600 font-semibold">
+              <div className="text-center py-10">
+                <Cake className="text-teal-300 w-12 h-12 mx-auto mb-3" />
+                <p className="text-gray-700 font-semibold">
                   No upcoming birthdays this month
                 </p>
                 <p className="text-gray-500 text-sm">
-                  Check back next month for celebrations!
+                  Check back next month for celebrations 🎉
                 </p>
               </div>
             ) : (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                 {upcomingBirthdays.map((member) => (
                   <div
                     key={member.email}
-                    className="bg-white rounded-xl p-4 border-2 border-purple-200 hover:shadow-lg transition-all duration-300 hover:scale-105"
+                    className="bg-white rounded-xl p-4 border border-teal-200 
+                     hover:shadow-xl hover:border-teal-400 
+                     transition-all duration-300 hover:-translate-y-1"
                   >
-                    <div className="flex items-center gap-3">
-                      {/* Photo */}
-                      <div className="w-16 h-16 rounded-full overflow-hidden border-4 border-purple-100 shrink-0">
+                    <div className="flex items-center gap-4">
+                      {/* Avatar */}
+                      <div className="w-16 h-16 rounded-full overflow-hidden border-4 border-teal-100 shrink-0">
                         <img
                           src={member.photo}
                           alt={member.name}
@@ -232,8 +234,8 @@ const MyTeam = () => {
                         <h3 className="font-bold text-gray-900 truncate">
                           {member.name}
                         </h3>
-                        <div className="flex items-center gap-1 text-purple-600 font-semibold text-sm">
-                          <FaBirthdayCake />
+                        <div className="flex items-center gap-1 text-teal-600 font-semibold text-sm">
+                          <Cake className="w-4 h-4" />
                           <span>{formatBirthday(member.upcomingBirthday)}</span>
                         </div>
                       </div>
@@ -252,171 +254,3 @@ const MyTeam = () => {
 export default MyTeam;
 
 
-{
-  /* <div className="">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-              {myTeamMembers.map((member) => (
-                <div
-                  key={member.email}
-                  className="bg-linear-to-br from-gray-50 to-white border-2 border-gray-200 rounded-xl p-4 hover:shadow-lg hover:border-[#006d6f]/30"
-                >
-                   Profile Photo 
-                  <div className="flex justify-center mb-3">
-                    <div className="relative">
-                      <div className="w-20 h-20 rounded-full overflow-hidden border-4 border-[#006d6f]/20">
-                        <img
-                          src={member.photo}
-                          alt={member.name}
-                          className="w-full h-full object-cover"
-                          onError={(e) => {
-                            e.target.src =
-                              "https://i.ibb.co.com/zT4dW396/asset.webp";
-                          }}
-                        />
-                      </div>
-                    </div>
-                  </div>
-
-                  Member Info
-                  <div className="text-center">
-                    <h3 className="font-bold text-gray-900 text-lg mb-1">
-                      {member.name}
-                    </h3>
-                    <p className="text-sm text-gray-600 mb-2 break-all">
-                      {member.email}
-                    </p>
-                    <span
-                      className={`inline-block px-3 py-1 rounded-full text-xs font-semibold ${
-                        member.position === "hr"
-                          ? "bg-[#006d6f]/20 text-[#006d6f]"
-                          : "bg-blue-100 text-blue-700"
-                      }`}
-                    >
-                      {member.position === "hr" ? "HR Manager" : "Employee"}
-                    </span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div> */
-}
-
-{
-  /* Empty State - No Team Members */
-}
-{
-  /* {selectedCompany && myTeamMembers.length === 0 && (
-  <div className="bg-white rounded-2xl shadow-lg p-12 text-center">
-    <div className="flex flex-col items-center gap-4">
-      <div className="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center">
-        <FaUsers className="text-gray-400 text-3xl" />
-      </div>
-      <h3 className="text-2xl font-bold text-gray-900">
-        No Team Members
-      </h3>
-      <p className="text-gray-600 max-w-md">
-        There are no team members in {selectedCompany} yet.
-      </p>
-    </div>
-  </div>
-)} */
-}
-//   const [filterType, setFilterType] = useState("All");
-{
-  /* {selectedCompany
-              ? `${myTeamMembers.length} team members`
-              : "Select a company to view team"} */
-}
-{
-  /* SEARCH + ROLE + COMPANY */
-}
-{
-  /* <div className="bg-white rounded-2xl shadow-lg p-6">
-        <div className="flex flex-col lg:flex-row items-center gap-4">
-          Search
-          <div className="relative w-full lg:flex-1">
-            <input
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              placeholder="Search Member..."
-              className="w-full pl-4 pr-12 py-3 bg-gray-50 border border-[#006d6f]/30 rounded-lg focus:ring-2 focus:ring-[#006d6f]/40 outline-none"
-            />
-            <Search className="absolute right-3 top-3.5 w-5 h-5 text-gray-500" />
-          </div>
-
-          Role Filter
-          <div className="relative w-full lg:flex-1">
-            <FaFilter className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
-            <select
-              value={roleFilter}
-              onChange={(e) => setRoleFilter(e.target.value)}
-              className="select select-bordered w-full md:w-52 pl-12 pr-4 py-3 border border-[#006d6f]/30 rounded-lg focus:ring-2 focus:ring-[#006d6f]/40 bg-white"
-            >
-              <option value="all">All Roles</option>
-              <option value="employee">Employees</option>
-              <option value="hr">HR Managers</option>
-            </select>
-          </div>
-          Company
-          <div className="relative w-full lg:flex-1">
-            <FaBuilding className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
-            <select
-              value={selectedCompany}
-              onChange={(e) => setSelectedCompany(e.target.value)}
-              className="w-full pl-12 pr-4 py-3 border border-[#006d6f]/30 rounded-lg focus:ring-2 focus:ring-[#006d6f]/40 bg-white rounded-xl focus:border-[#006d6f]/20 focus:outline-none transition-all  font-semibold"
-            >
-              <option value="">Select a Company</option>
-              {myCompanyNames.map((company, index) => (
-                <option key={index} value={company.companyName}>
-                  {company.companyName}
-                </option>
-              ))}
-            </select>
-          </div>
-        </div>
-      </div> */
-}
-
-{
-  /* {selectedCompany && (
-            <div className="bg-white p-4 rounded-xl shadow flex flex-col md:flex-row gap-4">
-              <div className="relative flex-1">
-                <input
-                  type="text"
-                  placeholder="Search team member..."
-                  value={search}
-                  onChange={(e) => setSearch(e.target.value)}
-                  className="w-full pl-4 pr-10 py-3 border rounded-lg"
-                />
-                <Search className="absolute right-3 top-3 text-gray-400" />
-              </div>
-
-              <select
-                value={roleFilter}
-                onChange={(e) => setRoleFilter(e.target.value)}
-                className="select select-bordered w-full md:w-52"
-              >
-                <option value="all">All Roles</option>
-                <option value="employee">Employees</option>
-                <option value="hr">HR Managers</option>
-              </select>
-            </div>
-          )} */
-}
-{
-  /* Role Filter*/
-}
-{
-  /* <div className="relative w-full lg:flex-1">
-            <FaFilter className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
-            <select
-              value={roleFilter}
-              onChange={(e) => setRoleFilter(e.target.value)}
-              className="w-full pl-12 pr-4 py-3 border border-[#006d6f]/30 rounded-lg focus:ring-2 focus:ring-[#006d6f]/40 bg-white"
-            >
-              <option value="Role">All Roles</option>
-              <option value="HR">HR</option>
-              <option value="Employee">Employee</option>
-            </select>
-          </div> */
-}

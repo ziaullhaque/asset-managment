@@ -176,9 +176,9 @@ const EmployeeList = () => {
           </div>
         ) : (
           <div className="grid grid-cols-1 gap-6">
-            {filteredEmployees.map((employee) => (
+            {filteredEmployees.map((employee, index) => (
               <div
-                key={employee._id}
+                key={employee._id || index}
                 className="flex items-center justify-between bg-white p-4 rounded-lg shadow border border-[#006d6f]/30 transition-all duration-300 hover:shadow-xl hover:border-[#006d6f]/40 overflow-hidden"
               >
                 <div className="flex items-center gap-4">

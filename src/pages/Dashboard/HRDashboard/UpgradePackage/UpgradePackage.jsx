@@ -18,8 +18,8 @@ import useAuth from "../../../../hooks/useAuth";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import LoadingSpinner from "../../../../components/Shared/LoadingSpinner/LoadingSpinner";
 
-const stripePromise = loadStripe();
-// import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY
+const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY);
+
 
 const UpgradeAndPaymentPage = () => {
   const { user } = useAuth();
@@ -50,7 +50,10 @@ const UpgradeAndPaymentPage = () => {
     },
   });
 
-  if (packagesLoading || !userData) return <LoadingSpinner />;
+  // if (packagesLoading || !userData) return <LoadingSpinner />;
+  if (packagesLoading || paymentLoading || !userData) {
+    return <LoadingSpinner />;
+  }
 
   return (
     <div className="min-h-screen py-12 bg-gray-50 px-4">

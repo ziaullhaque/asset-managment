@@ -13,7 +13,14 @@ import {
 import useAuth from "../../hooks/useAuth";
 import useRole from "../../hooks/useRole";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
-import { Calendar, Camera, Mail, User } from "lucide-react";
+import {
+  Building2,
+  Calendar,
+  Camera,
+  CheckCircle,
+  Mail,
+  User,
+} from "lucide-react";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -47,6 +54,7 @@ const Profile = () => {
       return res.data;
     },
   });
+  console.log(userData);
 
   if (isRoleLoading) return <LoadingSpinner />;
 
@@ -141,9 +149,14 @@ const Profile = () => {
             <Calendar className="text-[#006d6f] w-5 h-5" />
             <div className="text-sm">
               <span className="font-semibold">Joined:</span>{" "}
-              <span className="text-gray-600">
+              {/* <span className="text-gray-600">
                 {user?.createdAt
                   ? new Date(user?.createdAt).toLocaleDateString()
+                  : "N/A"}
+              </span> */}
+              <span className="text-gray-600">
+                {userData?.createdAt
+                  ? new Date(userData.createdAt).toLocaleDateString("en-GB")
                   : "N/A"}
               </span>
             </div>
@@ -153,8 +166,13 @@ const Profile = () => {
             <User className="text-[#006d6f] w-5 h-5" />
             <div className="text-sm">
               <span className="font-semibold">Date of Birth:</span>{" "}
-              <span className="text-gray-600">
+              {/* <span className="text-gray-600">
                 {user?.dateOfBirth || "N/A"}
+              </span> */}
+              <span className="text-gray-600">
+                {userData?.dateOfBirth
+                  ? new Date(userData.dateOfBirth).toLocaleDateString("en-GB")
+                  : "N/A"}
               </span>
             </div>
           </div>
@@ -213,37 +231,53 @@ const Profile = () => {
       )}
 
       {/* Employee Company Affiliations */}
-      {/* {role === "employee" && myCompanyNames.length > 0 && (
-        <div className="bg-white rounded-2xl shadow-xl p-8">
+      {role === "employee" && myCompanyNames.length > 0 && (
+        <div className="bg-white rounded-2xl shadow-xl p-8 mb-5 border border-indigo-100">
+          {/* Header */}
           <div className="flex items-center gap-3 mb-6">
-            <div className="w-12 h-12 bg-red-500 rounded-lg flex items-center justify-center">
-              <FaBuilding className="text-white text-xl" />
+            <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-sky-500 rounded-xl flex items-center justify-center shadow-md">
+              <Building2 className="text-white w-6 h-6" />
             </div>
             <h2 className="text-2xl font-bold text-gray-900">
               Company Affiliations
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {/* Company List */}
+          <div className="grid grid-cols-1 gap-4">
             {myCompanyNames.map((company, index) => (
               <div
                 key={index}
-                className="bg-red-50 rounded-xl p-4 border-2 border-red-200 hover:border-red-400 transition-all duration-200 flex items-center gap-3"
+                className="group bg-gradient-to-r from-indigo-50 to-sky-50
+                     rounded-xl p-4 border border-indigo-100
+                     hover:border-indigo-400 hover:shadow-lg
+                     transition-all duration-300 flex items-center gap-4"
               >
-                <div className="w-10 h-10 bg-red-500 rounded-lg flex items-center justify-center shrink-0">
-                  <FaBuilding className="text-white" />
+                {/* Icon */}
+                <div
+                  className="w-11 h-11 rounded-lg bg-indigo-500
+                       flex items-center justify-center
+                       group-hover:scale-110 transition"
+                >
+                  <Building2 className="text-white w-5 h-5" />
                 </div>
+
+                {/* Info */}
                 <div className="flex-1 min-w-0">
                   <p className="font-semibold text-gray-900 truncate">
                     {company.companyName}
                   </p>
-                  <p className="text-xs text-gray-600">Active</p>
+
+                  <div className="flex items-center gap-1 text-xs text-green-600 mt-1">
+                    <CheckCircle className="w-4 h-4" />
+                    Active
+                  </div>
                 </div>
               </div>
             ))}
           </div>
         </div>
-      )} */}
+      )}
       <button
         onClick={() => modalRef.current?.showModal()}
         className="btn w-full text-center text-[#006d6f] border-2 border-[#006d6f]/40

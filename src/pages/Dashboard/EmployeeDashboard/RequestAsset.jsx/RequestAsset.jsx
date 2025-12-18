@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Search, Package, Loader2, SearchX } from "lucide-react";
 import Swal from "sweetalert2";
@@ -11,17 +11,38 @@ const RequestAsset = () => {
   const axiosSecure = useAxiosSecure();
   const { user } = useAuth();
   const [search, setSearch] = useState("");
+  const [debouncedSearch, setDebouncedSearch] = useState("");
   const [filterType, setFilterType] = useState("All");
 
   // Fetch assets
+  // const {
+  //   data: assets = [],
+  //   isLoading,
+  //   refetch,
+  // } = useQuery({
+  //   queryKey: ["request-assets", search],
+  //   queryFn: async () => {
+  //     const res = await axiosSecure.get(`/assets?search=${search}`);
+  //     return res.data;
+  //   },
+  // });
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setDebouncedSearch(search);
+    }, 400);
+
+    return () => clearTimeout(timer);
+  }, [search]);
+
   const {
     data: assets = [],
     isLoading,
     refetch,
   } = useQuery({
-    queryKey: ["request-assets", search],
+    queryKey: ["request-assets", debouncedSearch],
     queryFn: async () => {
-      const res = await axiosSecure.get(`/assets?search=${search}`);
+      const res = await axiosSecure.get(`/assets?search=${debouncedSearch}`);
       return res.data;
     },
   });
