@@ -59,20 +59,31 @@ const AuthProvider = ({ children }) => {
 
   // onAuthStateChange
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
-      console.log("CurrentUser-->", currentUser?.email);
-      if (currentUser) {
-        const token = await currentUser.getIdToken();
-        setUser({ ...currentUser, accessToken: token });
-      } else {
-        setUser(null);
-      }
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser || null);
       setLoading(false);
     });
-    return () => {
-      return unsubscribe();
-    };
+
+    return unsubscribe;
   }, []);
+
+  // useEffect(() => {
+  //   const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
+  //     console.log("CurrentUser-->", currentUser?.email);
+  //     if (currentUser) {
+  //       // const token = await currentUser.getIdToken();
+  //       // setUser({ ...currentUser, accessToken: token });
+  //       setUser(currentUser)
+  //       console.log(user)
+  //     } else {
+  //       setUser(null);
+  //     }
+  //     setLoading(false);
+  //   });
+  //   return () => {
+  //     return unsubscribe();
+  //   };
+  // }, []);
 
   const authInfo = {
     user,

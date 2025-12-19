@@ -11,7 +11,8 @@ const Login = () => {
   const { signIn, loading, user } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location.state || "/";
+  const from = location.state?.from?.pathname || "/";
+  // const from = location.state || "/";
 
   const {
     register,
@@ -19,8 +20,9 @@ const Login = () => {
     formState: { errors },
   } = useForm();
   console.log(errors);
+  console.log({ user, loading });
 
-  if (user) return <Navigate to={from} replace={true} />;
+  // if (user) return <Navigate to={from} replace={true} />;
   if (loading) return <div>Loading...</div>;
 
   const onSubmit = async (data) => {
@@ -63,7 +65,7 @@ const Login = () => {
                     type="email"
                     id="email"
                     {...register("email", { required: "Email is required" })}
-                    placeholder="name@company.com"
+                    placeholder="Enter your email"
                     className="w-full pl-10 pr-4 py-3 rounded-lg border bg-gray-100 focus:border-[#006d6f] focus:ring-2 focus:ring-[#006d6f]/20"
                   />
                 </div>

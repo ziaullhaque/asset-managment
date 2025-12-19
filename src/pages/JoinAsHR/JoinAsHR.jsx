@@ -7,6 +7,7 @@ import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
 import { imageUpload } from "../../utils";
 import useAxios from "../../hooks/useAxios";
+import { Building } from "lucide-react";
 
 const JoinHR = () => {
   const { createUser, updateUserProfile, loading } = useAuth();
@@ -111,7 +112,7 @@ const JoinHR = () => {
       <div className="sm:mx-auto sm:w-full sm:max-w-[550px]">
         <div className="bg-white py-8 px-4 shadow-xl rounded-xl sm:px-10 border border-gray-100">
           <div className="text-center mb-6">
-            <FaBuilding className="mx-auto text-4xl text-[#006d6f]" />
+            <Building className="mx-auto text-4xl h-10 w-10 text-[#006d6f]" />
             <h2 className="text-3xl font-extrabold text-[#006d6f] mt-2">
               Join as HR Manager
             </h2>
@@ -128,6 +129,7 @@ const JoinHR = () => {
               <input
                 type="text"
                 {...register("name", { required: "Name is required" })}
+                placeholder="Enter your name"
                 className="w-full pl-3 py-2.5 border rounded-md bg-gray-100"
               />
               {errors.name && (
@@ -176,6 +178,7 @@ const JoinHR = () => {
                 {...register("companyName", {
                   required: "Company name is required",
                 })}
+                placeholder="Company Name"
                 className="w-full pl-3 py-2.5 border rounded-md bg-gray-100"
               />
             </div>
@@ -202,6 +205,7 @@ const JoinHR = () => {
                 type="email"
                 {...register("email", { required: "Email is required" })}
                 className="w-full pl-3 py-2.5 border rounded-md bg-gray-100"
+                placeholder="Enter your email"
               />
             </div>
 
@@ -218,12 +222,13 @@ const JoinHR = () => {
                       message: "Minimum 6 characters required",
                     },
                   })}
+                  placeholder="*******"
                   className="w-full pl-3 pr-10 py-2.5 border rounded-md bg-gray-100"
                 />
                 <button
                   type="button"
                   onClick={() => setShow(!show)}
-                  className="absolute right-3 top-2 text-gray-500"
+                  className="absolute right-3 top-3 text-gray-500"
                 >
                   {show ? <FaEye /> : <FaEyeSlash />}
                 </button>
@@ -232,7 +237,7 @@ const JoinHR = () => {
 
             <button
               type="submit"
-              className="w-full hover:bg-[#006d6f]/10 text-white py-3 rounded-md font-bold shadow"
+              className="w-full bg-[#006d6f] hover:bg-[#005355] text-white py-3 rounded-md font-bold shadow"
             >
               {loading ? (
                 <ImSpinner9 className="animate-spin m-auto" />

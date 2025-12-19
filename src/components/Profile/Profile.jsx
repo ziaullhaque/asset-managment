@@ -11,16 +11,9 @@ import {
   FaBriefcase,
 } from "react-icons/fa";
 import useAuth from "../../hooks/useAuth";
-import useRole from "../../hooks/useRole";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
-import {
-  Building2,
-  Calendar,
-  Camera,
-  CheckCircle,
-  Mail,
-  User,
-} from "lucide-react";
+import { Building2, Calendar, Camera, CheckCircle, User } from "lucide-react";
+import useRole from "../../hooks/useRole";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -66,9 +59,8 @@ const Profile = () => {
     try {
       await updateUserProfile(name, photoURL);
       await axiosSecure.patch("/user", { name });
-      toast.success("Profile updated successfully 🎉");
+      toast.success("Profile updated successfully ");
 
-      // Close modal programmatically
       if (modalRef.current) {
         modalRef.current.close();
       }

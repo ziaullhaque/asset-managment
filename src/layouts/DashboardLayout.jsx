@@ -1,20 +1,5 @@
 import { Link, NavLink, Outlet, useLocation, useNavigate } from "react-router";
-import {
-  FaBox,
-  FaUsers,
-  FaClipboardList,
-  FaPlusCircle,
-  FaUser,
-  FaArrowUp,
-  FaBars,
-  FaSignOutAlt,
-  FaChartBar,
-} from "react-icons/fa";
-import {
-  MdInventory,
-  MdOutlineRequestPage,
-  MdRequestPage,
-} from "react-icons/md";
+import { FaBars } from "react-icons/fa";
 import {
   LayoutDashboard,
   Package,
@@ -24,10 +9,8 @@ import {
   ArrowUpCircle,
   User,
   LogOut,
-  Menu,
   Boxes,
 } from "lucide-react";
-import { AiOutlineTeam } from "react-icons/ai";
 import { useState } from "react";
 import useRole from "../hooks/useRole";
 import useAuth from "../hooks/useAuth";
@@ -72,42 +55,6 @@ const DashboardLayout = () => {
       path: "/dashboard/upgrade-package",
       icon: ArrowUpCircle,
     },
-    // {
-    //   id: 1,
-    //   name: "Statistics",
-    //   path: "/dashboard",
-    //   icon: FaChartBar,
-    // },
-    // {
-    //   id: 2,
-    //   name: "Asset List",
-    //   path: "/dashboard/asset-list",
-    //   icon: FaClipboardList,
-    // },
-    // {
-    //   id: 3,
-    //   name: "Add Asset",
-    //   path: "/dashboard/add-asset",
-    //   icon: FaPlusCircle,
-    // },
-    // {
-    //   id: 4,
-    //   name: "All Requests",
-    //   path: "/dashboard/all-requests",
-    //   icon: FaClipboardList,
-    // },
-    // {
-    //   id: 5,
-    //   name: "Employee List",
-    //   path: "/dashboard/employee-list",
-    //   icon: FaUsers,
-    // },
-    // {
-    //   id: 6,
-    //   name: "Upgrade Package",
-    //   path: "/dashboard/upgrade-package",
-    //   icon: FaArrowUp,
-    // },
   ];
 
   const employeeLinks = [
@@ -119,19 +66,6 @@ const DashboardLayout = () => {
       path: "/dashboard/request-asset",
       icon: ClipboardList,
     },
-    // { id: 1, name: "My Assets", path: "/dashboard/my-asset", icon: FaBox },
-    // {
-    //   id: 2,
-    //   name: "My Team",
-    //   path: "/dashboard/my-team",
-    //   icon: AiOutlineTeam,
-    // },
-    // {
-    //   id: 3,
-    //   name: "Request Assets",
-    //   path: "/dashboard/request-asset",
-    //   icon: MdOutlineRequestPage,
-    // },
   ];
 
   const dashboardLinks = role === "employee" ? employeeLinks : HRLinks;

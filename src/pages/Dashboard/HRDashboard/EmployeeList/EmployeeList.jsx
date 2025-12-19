@@ -173,7 +173,7 @@ const EmployeeList = () => {
                   ? "Search did not match any employees."
                   : "Add employees to your team to see them here"}
               </p>
-              <button className="mt-6 bg-[#006d6f] hover:bg-[#005b5c] text-white px-5 py-2 rounded-md flex items-center gap-2 shadow active:scale-95 transition">
+              <button className="mt-6 mx-auto flex items-center justify-center bg-[#006d6f] hover:bg-[#005b5c] text-white px-5 py-2 rounded-md gap-2 shadow active:scale-95 transition">
                 <Plus className="w-4 h-4" /> Add Employee
               </button>
             </div>
