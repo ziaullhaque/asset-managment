@@ -8,6 +8,7 @@ A complete **HR & Employee-focused Asset Management Platform** that helps compan
 | Type | Link |
 |------|------|
 | Live Client | [Demo](https://asset-managment-byzia.netlify.app) |
+| Server | [Server](https://github.com/ziaullhaque/asset-managment-server.git) |
 
 
 ---
@@ -118,3 +119,4 @@ VITE_storageBucket=
 VITE_messagingSenderId=
 VITE_appId=
 VITE_SERVER_URL=
+
